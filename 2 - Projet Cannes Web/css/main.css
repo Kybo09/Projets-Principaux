@@ -1,0 +1,365 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 11, 2020, 3:50:09 PM
+    Author     : benoi
+*/
+
+
+h1{
+    text-align: center;
+    font-size: 40px;
+}
+
+.title a{
+    font-size: 30px;
+}
+
+.card-content{
+    font-size: 30px;
+    text-align: center;
+}
+
+.card-action{
+    text-align: center;
+}
+
+#cartevip .card, #carteactions .card, #carteechanges .card{
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+#cartevip:hover .card, #carteactions:hover .card, #carteechanges:hover .card{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+#cartevip a, #carteactions a, #carteechanges a{
+    color: black;
+}
+
+#cartevip i, #carteactions i, #carteechanges i{
+    font-size: 200px;
+    color: grey;
+}
+
+#formlogin{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    margin-top: 20vh;
+    padding: 0px 30px;
+}
+
+input[type="submit"]{
+    display: block;
+    margin: auto;
+    background-color: #ab47bc;
+    border: none;
+    padding: 10px 20px;
+    font-size: 30px;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+input[type="submit"]:hover{
+    background-color: #8e24aa;
+}
+
+#cardvipfiche a{
+    color: black;
+}
+
+#cardvipfiche .card-image{
+    width: 70px;
+}
+
+#cardvipfiche .card-content{
+    padding: 5px 25px;
+}
+
+#cardvipfiche .card-content p{
+    font-size: 20px;
+    text-align: left;
+
+}
+#cardvipfiche .btn-group-card a{
+    cursor: pointer;
+    float: right;
+    color: #ce93d8;
+}
+
+#cardvipfiche .btn-group-card a i{
+    text-align: right;
+}
+
+#cardvipfiche .btn-group-card{
+    display: none;
+}
+
+#cardvipfiche .card:hover .btn-group-card{
+    display: block;
+}
+
+#cardvipfiche .card{
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    cursor: pointer;
+}
+
+.actionrow{
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    margin-left: 20px;
+    cursor: pointer;
+    margin-right: 20px;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.actionrow:hover, #cardvipfiche .card:hover{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.actionrow .actioncardbtn{
+    padding-right: 20px;
+    padding-top: 5px;
+}
+
+.actionrow .actioncardbtn a{
+    float: right;
+}
+
+.actionrow .actioncardbtn i{
+    font-size: 40px;
+    color: #ce93d8;
+}
+
+.actioncardbtn{
+    display: none;
+}
+
+.actionrow:hover .actioncardbtn{
+    display: block;
+}
+
+#decotext{
+    font-size: 20px;
+}
+
+.lienid{
+    color: grey;
+    text-decoration: underline;
+}
+
+#popup{
+    position: fixed;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    background-color: white;
+    width: 60%;
+    height: 80px;
+    top: 50%;
+    left: 50%;
+    margin-top: -40px; /* Negative half of height. */
+    margin-left: -30%;
+    display: none;
+    border-radius: 20px;
+    z-index: 1;
+    padding: 20px;
+}
+
+#popup:target{
+    display: block;
+}
+
+#popup:target +div{
+    filter: blur(5px) grayscale(1);
+}
+
+#popup .closepopup{
+    float: right;
+    font-size: 30px;
+    color: black;
+}
+
+#popup a{
+    margin-top: 1em;
+}
+
+#popup a.closepopup{
+    margin-top: 0;
+}
+
+#formVIP{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.switchCharge label{
+    color: black;
+    font-size: 20px;
+}
+
+.switchCharge>div{
+    text-align: center;
+}
+
+#editmode, #idviphide, #oldurl{
+    display: none;
+}
+
+.infovip p{
+    font-size: 20px;
+    margin: 0;
+}
+
+.infovip p:first-child{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0;
+}
+
+#fichevipinfo>div:first-child{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    padding: 20px;
+    border-radius: 20px;
+}
+
+#fichevipinfo img{
+    width: 50%;
+    display: block;
+    margin: auto;
+}
+
+.rowaction{
+    margin-top: 50px;
+    margin-right: 20px;
+    margin-left: 20px;
+    border-bottom: 2px solid lightgrey;
+}
+
+.rowaction i{
+    float: right;
+    color: #ce93d8;
+    cursor: pointer;
+}
+
+#fichevipinfo .lastSave{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    margin-top: 100px;
+    border-radius: 20px;
+}
+
+.lastSave p{
+    font-size: 20px;
+}
+
+.lastSave p:first-child{
+    font-size: 30px;
+    text-align: center;
+}
+
+.lastSave p.date, .descAction .date{
+    color: grey;
+    font-style: italic;
+    float: right;
+}
+
+.specialrow{
+    box-shadow: none;
+    font-weight: bold;
+}
+
+.specialrow:hover{
+    box-shadow: none;
+    cursor: auto;
+}
+
+#ficheAction img{
+    width: 100px;
+}
+
+#ficheAction div:first-child p{
+    font-size: 20px;
+    width: 100%;
+}
+
+#ficheAction a{
+    color: black;
+}
+
+.descAction p:first-child{
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.descAction p{
+    font-size: 20px;
+}
+
+.descAction{
+    box-shadow: 0 3px 5px rgba(0,0,0,0.12), 0 3px 5px rgba(0,0,0,0.24);
+    margin-top: 50px;
+}
+
+#ficheAction div:nth-child(2){
+    margin-top: 20px;
+}
+
+.black{
+    color: black;
+}
+
+#cartevip, #carteactions, #carteechanges{
+    animation-duration: 1s;
+    animation-name: slideupsmooth;
+    animation-fill-mode: forwards;
+}
+
+#carteactions{
+    animation-delay: 0.2s;
+    opacity: 0;
+}
+
+#carteechanges{
+    animation-delay: 0.5s;
+    opacity: 0;
+}
+
+#cardvipfiche>div, .actionrow{
+    animation-duration: 1s;
+    animation-name: slideleftsmooth;
+}
+
+.specialrow{
+    animation: none;
+}
+
+
+
+
+
+
+@keyframes slideupsmooth{
+    from {
+        margin-top: 10vh;
+        opacity: 0;
+    }
+
+    to {
+      margin-top: 0%;
+      opacity: 1;
+    }
+}
+
+@keyframes slideleftsmooth{
+    from {
+        -webkit-transform: rotateX(-30deg) translateX(300px) skewX(30deg); transform: rotateX(-30deg) translateX(300px) skewX(30deg);opacity: 0;
+    }
+
+    to {
+        -webkit-transform: rotateX(0deg) translateX(0) skewX(0deg); transform: rotateX(0deg) translateX(0) skewX(0deg);opacity: 1;
+    }
+}

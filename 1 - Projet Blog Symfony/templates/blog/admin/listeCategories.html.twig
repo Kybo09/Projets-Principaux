@@ -1,0 +1,19 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block body %}
+    <h2 class="text-center">Voici la liste des catégories :</h2>
+    <div class="row" id="rowpost">
+        {% for cat in listCat %}
+        <div class="col-sm-6 col-md-4 col-lg-3 padding-col">
+            <div class="post-card admin p-3 mb-5 rounded other-card" style="border-top: 4px solid {{ cat.color }};">
+                <p class="text-center">{{ cat.name }}</p>
+                <div class="row editsupr">
+                    <a class="col-sm-2 offset-sm-8 text-center text-decoration-none iconpost" href="{{ path('editCategory', {idCat: cat.id}) }}"><i class="large material-icons">create</i></a>
+                    <a class="col-sm-2 text-center text-decoration-none iconpost" href="{{ path('removeCategory', {idcat: cat.id}) }}"><i class="large material-icons">delete</i></a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <a href="{{ path('addCategory') }}" type="button" class="btn btn-dark btn-lg addbtn">+ Ajouter</a>
+{% endblock %}

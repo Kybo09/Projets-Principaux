@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row postdetail" style="margin-top: 100px">
+        {% for thispost in post %}
+        <div class="col-sm-12 post-list p-3 mb-5 rounded postcontent">
+            <p class="title">{{ thispost.title }}</p>
+            <p class="desc">{{ thispost.description }}</p>
+            <textarea readonly>{{ thispost.content }}</textarea>
+            <p class="text-right">Publié le {{ thispost.publishedAt|date("d-m-Y") }}</p>
+        </div>
+        {% endfor %}
+
+        {% for com in listCom %}
+            <div class="postcomment col-sm-12 col-md-6 col-lg-4">
+                <div>
+                    <p>{{ com.content }}</p>
+                    <p>Posté par {{ com.username }} le {{ com.createdAt|date("d-m-Y") }}</p>
+                </div>
+            </div>
+        {% endfor %}
+
+        <div class="col-sm-12">
+            {{ form_start(formView) }}
+
+            <div class="my-custom-class-for-errors">
+                {{ form_errors(formView) }}
+            </div>
+
+            <div class="row form">
+                <h2 class="col-sm-12">Ajouter un commentaire</h2>
+                <div class="col-sm-6 offset-sm-3">
+                    {{ form_row(formView.username, {'label': 'Nom d\'utilisateur :'}) }}
+                </div>
+
+                <div class="col-sm-12">
+                    {{ form_row(formView.content, {'label': 'Commentaire :'}) }}
+                </div>
+
+                <div class="col-sm-12">
+                    {{ form_row(formView.save, { 'label': 'Ajouter' }) }}
+                </div>
+            </div>
+            {{ form_end(formView) }}
+        </div>
+
+
+    </div>
+{% endblock %}

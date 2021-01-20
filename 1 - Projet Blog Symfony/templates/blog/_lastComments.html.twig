@@ -1,0 +1,10 @@
+<div class="lastcommentblock">
+    {% for com in listComments %}
+        <a href="{{ path('showPost', {slug: com.post.slug}) }}">
+            <div class="lastcomment">
+                <p>{{ com.content }}</p>
+                <p class="sub">Posté par {{ com.username }} le {{ com.createdAt|date("d-m-Y") }}</p>
+            </div>
+        </a>
+    {% endfor %}
+</div>

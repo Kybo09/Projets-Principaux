@@ -1,0 +1,34 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block body %}
+
+    <h1 class="text-center">Bienvenue sur le panel d'administation !</h1>
+
+    <div class="row homeadmin">
+        <div class="col-sm-12 col-md-6 col-lg-4">
+            <a href="{{ path('listPost') }}">
+                <div class="admin-card">
+                    <i class="material-icons">library_books</i>
+                    <p>Gérer les posts</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-4">
+            <a href="{{ path('showCategory') }}">
+                <div class="admin-card catadmin">
+                    <i class="material-icons">list</i>
+                    <p>Gérer les catégories</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-4">
+            <a href="{{ path('showComments') }}">
+                <div class="admin-card comadmin">
+                    <i class="material-icons">comment</i>
+                    <p>Gérer les commentaires</p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block body %}
+    <h2 class="text-center">Voici la liste des commentaires :</h2>
+    <p class="text-center">Les commentaires en attente de confirmation sont de couleur orange !</p>
+    <div class="row" id="rowpost">
+        {% for com in listComment %}
+        <div class="col-sm-12 col-md-6 col-lg-4 padding-col">
+            <div class="post-card admin p-3 mb-5 rounded other-card {% if not com.valid %}attente{% endif %}">
+                <p>{{ com.content }}</p>
+                <p class="text-right">Posté par {{ com.username }} le {{ com.createdAt|date("d-m-Y") }}</p>
+                <div class="editsupr">
+                    {% if not com.valid %}<a class="col-sm-2 offset-sm-8 text-center text-decoration-none iconpost" href="{{ path('approveComments', {idcom: com.id }) }}"><i class="large material-icons">check</i></a>{% endif %}
+                    <a class="col-sm-2 text-center {% if com.valid %}offset-sm-10{% endif %} text-decoration-none iconpost" href="{{ path('removeComments', {idcom: com.id}) }}"><i class="large material-icons">delete</i></a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="alert alert-info alert-dismissible fade show alertcom">
+        <a href="{{ path('commentModeration') }}">Vous pouvez afficher uniquement les commentaires à approuver <strong>ICI !</strong></a>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <script>
+        function showAlert(){
+            $('.alert').alert();
+        }
+        window.onload = showAlert();
+    </script>
+{% endblock %}

@@ -1,0 +1,3 @@
+{% for cat in listCat %}
+    <a class="cat" href="{{ path('postByCat', {idcat: cat.id})  }}">{{ cat.name }} ({{ cat.posts|length }})</a>
+{% endfor %}

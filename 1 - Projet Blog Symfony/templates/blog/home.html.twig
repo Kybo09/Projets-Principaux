@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-sm-4 col-md-3 sidebar">
+            <h2>Catégories :</h2>
+            {{ render(path('catWithPost')) }}
+            <h2>Derniers Commentaires :</h2>
+            {{ render(path('lastComment')) }}
+        </div>
+        <div class="col-sm-8 col-md-9 offset-sm-4 offset-md-3">
+            <div class="row" id="rowpost">
+                <h1 class="col-sm-12 text-center homewelcome">Bienvenue sur Blog4Dev !</h1>
+                {% for post in listPost %}
+                    {% set nbcolor = post.categories.count %}
+                    <div class="col-sm-12 col-md-6 padding-col">
+                        <div class="post-card p-3 mb-5 rounded">
+                            <a href="{{ path('showPost', {slug: post.slug}) }}" class="text-decoration-none">
+                                <p class="font-weight-bold text-center">{{ post.title }}</p>
+                                <p>{{ post.description }}</p>
+                                <p class="text-right">Publié le {{ post.publishedAt|date("d-m-Y") }}</p>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+                <nav class="col-sm-12">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item {% if page-1 < 1 %}disabled{% endif %}"><a class="page-link" href="{{ path('home', {page: page-1}) }}">Précédent</a></li>
+                        {% for nbpage in 0..pages-1 %}
+                            <li class="page-item"><a class="page-link {% if page-1 == nbpage %}active{% endif %}" href="{{ path('home', {page: nbpage+1}) }}">{{ nbpage+1 }}</a></li>
+                        {% endfor %}
+                        <li class="page-item {% if page-1 >= pages-1 %}disabled{% endif %}"><a class="page-link" href="{{ path('home', {page: page+1}) }}">Suivant</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+    </div>
+
+
+
+{% endblock %}

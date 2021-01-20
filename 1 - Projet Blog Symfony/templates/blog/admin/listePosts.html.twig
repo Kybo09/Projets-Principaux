@@ -1,0 +1,23 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block body %}
+    <h2 class="text-center">Voici la liste des posts :</h2>
+    <div class="row" id="rowpost">
+        {% for post in listPost %}
+            <div class="col-sm-12 col-md-6 col-lg-4 padding-col">
+                <div class="post-card admin p-3 mb-5 rounded">
+                    <a href="{{ path('showPost', {slug: post.slug}) }}" class="text-decoration-none">
+                        <p class="font-weight-bold text-center">{{ post.title }}</p>
+                        <p>{{ post.description }}</p>
+                        <p class="text-right">Publié le {{ post.publishedAt|date("d-m-Y") }}</p>
+                    </a>
+                    <div class="row editsupr">
+                        <a class="col-sm-2 offset-sm-8 text-center text-decoration-none iconpost" href="{{ path('editPost', {idPost: post.id}) }}"><i class="large material-icons">create</i></a>
+                        <a class="col-sm-2 text-center text-decoration-none iconpost" href="{{ path('removePost', {idpost: post.id}) }}"><i class="large material-icons">delete</i></a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <a href="{{ path('addPost') }}" type="button" class="btn btn-dark btn-lg addbtn">+ Ajouter</a>
+{% endblock %}

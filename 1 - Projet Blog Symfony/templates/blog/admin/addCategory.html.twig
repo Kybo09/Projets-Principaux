@@ -1,0 +1,22 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block body %}
+    <h2>Ajouter une catégorie :</h2>
+    {{ form_start(formView) }}
+    <div class="my-custom-class-for-errors">
+        {{ form_errors(formView) }}
+    </div>
+
+    <div class="row form">
+        <div class="col-sm-12">
+            {{ form_row(formView.name, {'label': 'Nom :'}) }}
+        </div>
+        <div class="col-sm-12">
+            {{ form_row(formView.color, {'label': 'Couleur :'}) }}
+        </div>
+        <div class="col-sm-12">
+            {{ form_row(formView.save, { 'label': 'Ajouter' }) }}
+        </div>
+    </div>
+    {{ form_end(formView) }}
+{% endblock %}
